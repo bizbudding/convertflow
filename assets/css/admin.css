@@ -1,0 +1,22 @@
+.menu-top.toplevel_page_convertflow img {
+	padding: 6px 0 0 !important;
+	height: 20px;
+}
+
+body.toplevel_page_convertflow {
+	background-color: #fff;
+}
+
+.convertflow input {
+	width: 300px;
+	max-width: 90%;
+}
+
+.convertflow #submit_button img {
+	display: none;
+	margin-bottom: -2px;
+}
+
+.convertflow #submit_button.running img {
+	display: inline-block;
+}
