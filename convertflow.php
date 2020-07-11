@@ -21,4 +21,6 @@ require_once __DIR__ . '/lib/api.php';
 require_once __DIR__ . '/lib/setup.php';
 require_once __DIR__ . '/lib/admin.php';
 require_once __DIR__ . '/lib/ajax.php';
+require_once __DIR__ . '/lib/shortcodes.php';
+require_once __DIR__ . '/lib/blocks.php';
 require_once __DIR__ . '/lib/public.php';

@@ -18,14 +18,17 @@ function get_api_root() {
  *
  * @since 1.0.0
  *
+ * @param string $api_key
+ * @param string $website_id
+ *
  * @return bool
  */
-function authenticate_api_credentials() {
+function authenticate_api_credentials( $api_key, $website_id ) {
 	$response = \wp_remote_get(
-		get_api_root() . 'websites/' . get_value( 'website_id' ),
+		get_api_root() . 'websites/' . $website_id,
 		[
 			'headers' => [
-				'Authorization' => get_value( 'api_key' ),
+				'Authorization' => $api_key,
 			],
 		]
 	);
@@ -40,19 +43,54 @@ function authenticate_api_credentials() {
  *
  * @since 1.0.0
  *
- * @param string $query Query parameters.
+ * @param string $query   Query parameters.
+ * @param string $api_key API key.
  *
  * @return mixed
  */
-function get_remote_data( $query = '' ) {
+function get_remote_data( $query, $api_key ) {
 	$response = \wp_remote_get(
 		get_api_root() . $query,
 		[
 			'headers' => [
-				'Authorization' => get_value( 'api_key' ),
+				'Authorization' => $api_key,
 			],
 		]
 	);
 
-	return \json_decode( \wp_remote_retrieve_body( $response ) );
+	return \json_decode( \wp_remote_retrieve_body( $response ), true );
+}
+
+\add_action( 'init', __NAMESPACE__ . '\\get_api_data' );
+/**
+ * Saves API data as transients.
+ *
+ * @since 1.0.0
+ *
+ * @param bool $reset Whether to bypass transient timeout check.
+ *
+ * @return array
+ */
+function get_api_data( $reset = false ) {
+	if ( ! get_value( 'status' ) ) {
+		return [];
+	}
+
+	$transient = get_transient( get_slug() );
+
+	if ( ! $reset && $transient ) {
+		return $transient;
+	}
+
+	$api_key    = get_value( 'api_key' );
+	$website_id = get_value( 'website_id' );
+	$data       = [
+		'website' => get_remote_data( 'websites/' . $website_id, $api_key ),
+		'ctas'    => get_remote_data( 'ctas', $api_key ),
+		'areas'   => get_remote_data( 'areas', $api_key ),
+	];
+
+	set_transient( get_slug(), $data, HOUR_IN_SECONDS );
+
+	return $data;
 }

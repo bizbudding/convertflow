@@ -1,0 +1,34 @@
+.wp-block-convertflow-cta {
+	min-height: 100px;
+	background-color: #f5f7f9;
+	background-image: url(../img/convertflow.png);
+	background-size: 200px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.wp-block-convertflow-cta img {
+	display: block;
+	width: 100%;
+}
+
+.wp-block-convertflow-area {
+	min-height: 100px;
+	padding: 50px;
+	text-align: center;
+	background-color: #f5f7f9;
+}
+
+div.wp-block-convertflow-area p {
+	position: absolute;
+	left: calc(50% - 110px);
+	width: 220px;
+	color: #fff;
+	padding: 12px 0;
+	line-height: 1;
+}
+
+.wp-block-convertflow-area img {
+	display: block;
+	margin: 0 auto;
+}

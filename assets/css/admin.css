@@ -12,11 +12,36 @@ body.toplevel_page_convertflow {
 	max-width: 90%;
 }
 
-.convertflow #submit_button img {
+.convertflow input + img {
+	display: none;
+}
+
+.convertflow[data-status="success"] input + img {
+	display: inline-block;
+}
+
+.convertflow[data-status="success"] button {
+	display: none;
+}
+
+.convertflow .success-message,
+.convertflow .error-message {
+	display: none;
+}
+
+.convertflow[data-status="success"] .success-message {
+	display: block;
+}
+
+.convertflow[data-status="error"] .error-message {
+	display: block;
+}
+
+.convertflow button img {
 	display: none;
 	margin-bottom: -2px;
 }
 
-.convertflow #submit_button.running img {
+.convertflow button.running img {
 	display: inline-block;
 }

@@ -59,32 +59,71 @@ function get_slug() {
  *
  * @since 1.0.0
  *
- * @param string $header Header to retrieve.
- *
- * @return array
+ * @return mixed
  */
-function get_data( $header ) {
+function get_data() {
 	static $data = [];
 
 	if ( empty( $data ) ) {
 		$data = \get_file_data(
 			get_file(),
 			[
-				'Name'        => 'Plugin Name',
-				'PluginURI'   => 'Plugin URI',
-				'Version'     => 'Version',
-				'Description' => 'Description',
-				'Author'      => 'Author',
-				'AuthorURI'   => 'Author URI',
-				'TextDomain'  => 'Text Domain',
-				'DomainPath'  => 'Domain Path',
-				'Network'     => 'Network',
+				'name'        => 'Plugin Name',
+				'plugin_uri'  => 'Plugin URI',
+				'version'     => 'Version',
+				'description' => 'Description',
+				'author'      => 'Author',
+				'author_uri'  => 'Author URI',
+				'text_domain' => 'Text Domain',
+				'domain_path' => 'Domain Path',
+				'network'     => 'Network',
 			],
 			'plugin'
 		);
 	}
 
-	return $data[ $header ];
+	return $data;
+}
+
+/**
+ * Returns plugin version number.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function get_version() {
+	static $version = null;
+
+	return is_null( $version ) ? get_data()['version'] : $version;
+}
+
+/**
+ * Returns the last modified time of a file.
+ *
+ * @since 1.0.0
+ *
+ * @param string $file File name, e.g `admin.js`.
+ *
+ * @return string
+ */
+function get_asset_version( $file ) {
+	$type = false !== strpos( $file, '.js' ) ? 'js' : 'css';
+
+	return \filemtime( get_dir() . "assets/$type/$file" );
+}
+
+/**
+ * Returns plugin version number.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function get_text_domain() {
+	static $text_domain = null;
+
+	return is_null( $text_domain ) ? get_data()['text_domain'] : $text_domain;
 }
 
 /**

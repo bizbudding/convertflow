@@ -10,6 +10,6 @@ function load_textdomain() {
 	\load_plugin_textdomain(
 		get_slug(),
 		false,
-		get_dir() . get_data( 'TextDomain' )
+		get_dir() . get_text_domain()
 	);
 }
