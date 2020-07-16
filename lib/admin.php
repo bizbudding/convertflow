@@ -43,8 +43,8 @@ function admin_scripts() {
 	);
 
 	\wp_localize_script(
+		$handle,
 		'convertflowSettings',
-		get_slug(),
 		[
 			'ajax_url'   => \admin_url( 'admin-ajax.php' ),
 			'action'     => get_slug(),
@@ -57,7 +57,7 @@ function admin_scripts() {
 	\wp_enqueue_script( $handle );
 }
 
-\add_action('admin_enqueue_scripts', __NAMESPACE__ . '\\admin_styles');
+\add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_styles' );
 /**
  * Enqueues admin styles.
  *
@@ -89,6 +89,10 @@ function admin_styles() {
  */
 function render_admin_menu_page() {
 	$status = get_value( 'status' ) ? 'success' : 'error';
+
+	if ( ! \get_option( get_slug(), [] ) ) {
+		$status = 'pending';
+	}
 
 	?>
 	<div class="wrap">

@@ -14,8 +14,8 @@ function register_blocks() {
 	$handle      = get_slug() . '-blocks';
 	$build       = require_once get_dir() . 'build/blocks.asset.php';
 	$data        = get_api_data();
-	$ctas        = $data['ctas'];
-	$areas       = $data['areas'];
+	$ctas        = isset( $data['ctas'] ) ? $data['ctas'] : [];
+	$areas       = isset( $data['areas'] ) ? $data['areas'] : [];
 	$cta_data    = [];
 	$area_data   = [];
 	$screenshots = [];

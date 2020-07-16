@@ -13,7 +13,7 @@ namespace ConvertFlow\Plugin;
 function update_options() {
 	\check_ajax_referer( get_slug(), 'nonce' );
 
-	$options               = \get_option( get_slug() );
+	$options               = \get_option( get_slug(), [] );
 	$options['api_key']    = \sanitize_text_field( $_POST['api_key'] );
 	$options['website_id'] = \sanitize_text_field( $_POST['website_id'] );
 	$options['status']     = authenticate_api_credentials( $options['api_key'], $options['website_id'] );
