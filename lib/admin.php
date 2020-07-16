@@ -129,3 +129,22 @@ function render_admin_menu_page() {
 	</div>
 	<?php
 }
+
+add_filter( 'plugin_action_links_' . get_base(), __NAMESPACE__ . '\\add_settings_link' );
+/**
+ * Adds settings link to plugin screen.
+ *
+ * @since 1.0.0
+ *
+ * @param array $links Plugin action links.
+ *
+ * @return array
+ */
+function add_settings_link( $links ) {
+	$links[] = sprintf(
+		'<a href="admin.php?page=convertflow">%s</a>',
+		__( 'Settings', 'convertflow' )
+	);
+
+	return $links;
+}

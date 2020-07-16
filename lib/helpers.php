@@ -29,6 +29,19 @@ function get_file() {
 }
 
 /**
+ * Return the plugin base string.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function get_base() {
+	static $base = null;
+
+	return \is_null( $base ) ? \plugin_basename( get_file() ) : $base;
+}
+
+/**
  * Returns the plugin directory URL.
  *
  * @since 1.0.0
