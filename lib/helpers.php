@@ -64,7 +64,7 @@ function get_url() {
 function get_slug() {
 	static $slug = null;
 
-	return is_null( $slug ) ? 'convertflow' : $slug;
+	return \is_null( $slug ) ? 'convertflow' : $slug;
 }
 
 /**
@@ -108,7 +108,7 @@ function get_data() {
 function get_version() {
 	static $version = null;
 
-	return is_null( $version ) ? get_data()['version'] : $version;
+	return \is_null( $version ) ? get_data()['version'] : $version;
 }
 
 /**
@@ -121,7 +121,7 @@ function get_version() {
  * @return string
  */
 function get_asset_version( $file ) {
-	$type = false !== strpos( $file, '.js' ) ? 'js' : 'css';
+	$type = false !== \strpos( $file, '.js' ) ? 'js' : 'css';
 
 	return \filemtime( get_dir() . "assets/$type/$file" );
 }
@@ -136,7 +136,7 @@ function get_asset_version( $file ) {
 function get_text_domain() {
 	static $text_domain = null;
 
-	return is_null( $text_domain ) ? get_data()['text_domain'] : $text_domain;
+	return \is_null( $text_domain ) ? get_data()['text_domain'] : $text_domain;
 }
 
 /**

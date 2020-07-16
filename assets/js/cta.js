@@ -20,6 +20,15 @@ registerBlockType( 'convertflow/cta', {
 	edit( { attributes, setAttributes } ) {
 		const { selectField } = attributes;
 		const screenshot      = convertflowData.screenshots[ selectField ];
+		const ctas            = convertflowData.ctas;
+		const ctaOptions      = [];
+
+		for ( const key of Object.keys( ctas ) ) {
+			ctaOptions.push( {
+				value: ctas[ key ],
+				label: key
+			} );
+		}
 
 		function onChangeSelectField( newValue ) {
 			setAttributes( { selectField: newValue } );
@@ -36,12 +45,7 @@ registerBlockType( 'convertflow/cta', {
 						<SelectControl
 							label={__( 'Select Call to Action', 'convertflow' )}
 							value={selectField}
-							options={convertflowData.ctas.map( cta => {
-								return {
-									value: cta.value,
-									label: cta.label,
-								};
-							} )}
+							options={ctaOptions}
 							onChange={onChangeSelectField}
 						/>
 					</PanelBody>

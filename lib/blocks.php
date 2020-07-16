@@ -12,7 +12,7 @@ namespace ConvertFlow\Plugin;
  */
 function register_blocks() {
 	$handle      = get_slug() . '-blocks';
-	$build       = require_once get_dir() . 'build/blocks.asset.php';
+	$build       = require_once get_dir() . 'assets/js/min/blocks.asset.php';
 	$data        = get_api_data();
 	$ctas        = isset( $data['ctas'] ) ? $data['ctas'] : [];
 	$areas       = isset( $data['areas'] ) ? $data['areas'] : [];
@@ -21,21 +21,26 @@ function register_blocks() {
 	$screenshots = [];
 
 	foreach ( $ctas as $cta ) {
-		$cta_data[] = [
-			'value' => isset( $cta['id'] ) ? $cta['id'] : null,
-			'label' => isset( $cta['name'] ) ? $cta['name'] : null,
-		];
+		if ( isset( $cta['name'] ) && isset( $cta['id'] ) ) {
+			$cta_data[ $cta['name'] ] = $cta['id'];
+		}
 
-		$screenshots[ $cta['id'] ] = isset( $cta['variants'][0]['screenshot'] ) ? $cta['variants'][0]['screenshot'] : null;
+		if ( isset( $cta['id'] ) ) {
+			$screenshots[ $cta['id'] ] = isset( $cta['variants'][0]['screenshot'] ) ? $cta['variants'][0]['screenshot'] : null;
+		}
 	}
 
 	foreach ( $areas as $area ) {
-		$area_data[ $area['id'] ] = $area['name'];
+		$area_data[ $area['name'] ] = $area['id'];
 	}
+
+	\uksort( $screenshots, 'strcasecmp' );
+	\uksort( $cta_data, 'strcasecmp' );
+	\uksort( $area_data, 'strcasecmp' );
 
 	\wp_register_script(
 		$handle,
-		get_url() . 'build/blocks.js',
+		get_url() . 'assets/js/min/blocks.js',
 		$build['dependencies'],
 		$build['version']
 	);

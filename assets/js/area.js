@@ -39,8 +39,8 @@ registerBlockType( 'convertflow/area', {
 
 		for ( const key of Object.keys( areas ) ) {
 			areaOptions.push( {
-				value: key,
-				label: areas[ key ]
+				value: areas[ key ],
+				label: key
 			} );
 		}
 

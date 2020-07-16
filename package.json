@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Connects WordPress site to ConvertFlow account.",
   "scripts": {
-    "build": "wp-scripts build src/blocks.js",
+    "build": "wp-scripts build assets/js/blocks.js --output-path=assets/js/min",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "format:js": "wp-scripts format-js",

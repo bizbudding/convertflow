@@ -82,13 +82,17 @@ function get_api_data( $reset = false ) {
 		return $transient;
 	}
 
-	$api_key    = get_value( 'api_key' );
-	$website_id = get_value( 'website_id' );
-	$data       = [
-		'website' => get_remote_data( 'websites/' . $website_id, $api_key ),
-		'ctas'    => get_remote_data( 'ctas', $api_key ),
-		'areas'   => get_remote_data( 'areas', $api_key ),
-	];
+	$api_key         = get_value( 'api_key' );
+	$website_id      = get_value( 'website_id' );
+	$data['website'] = get_remote_data( 'websites/' . $website_id, $api_key );
+	$data['areas']   = get_remote_data( 'areas', $api_key );
+	$ctas            = get_remote_data( 'ctas', $api_key );
+
+	foreach ( $ctas as $cta ) {
+		if ( isset( $cta['cta_type'] ) && 'inline' === $cta['cta_type'] ) {
+			$data['ctas'][] = $cta;
+		}
+	}
 
 	set_transient( get_slug(), $data, HOUR_IN_SECONDS );
 

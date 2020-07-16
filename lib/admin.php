@@ -97,32 +97,32 @@ function render_admin_menu_page() {
 	?>
 	<div class="wrap">
 		<br>
-		<img src="<?php echo esc_url( get_url() . 'assets/img/convertflow.png' ); ?>" alt="ConvertFlow" width="200">
+		<img src="<?php echo \esc_url( get_url() . 'assets/img/convertflow.png' ); ?>" alt="ConvertFlow" width="200">
 		<br>
-		<p><?php esc_html_e( 'Enter your site API Key and Website ID below.', 'convertflow' ) ?></p>
-		<form class="convertflow" action="javascript:void(0);" data-status="<?php echo esc_attr( $status ); ?>">
-			<p class="success success-message"><?php esc_html_e( 'Connected.', 'convertflow' ); ?></p>
-			<p class="error error-message"><?php esc_html_e( 'Incorrect API key or website ID.', 'convertflow' ) ?></p>
+		<p><?php \esc_html_e( 'Enter your site API Key and Website ID below.', 'convertflow' ) ?></p>
+		<form class="convertflow" action="javascript:void(0);" data-status="<?php echo \esc_attr( $status ); ?>">
+			<p class="success success-message"><?php \esc_html_e( 'Connected.', 'convertflow' ); ?></p>
+			<p class="error error-message"><?php \esc_html_e( 'Incorrect API key or website ID.', 'convertflow' ) ?></p>
 			<p>
-				<label for="name"><strong><?php esc_html_e( 'API Key', 'convertflow' ); ?></strong></label>
+				<label for="name"><strong><?php \esc_html_e( 'API Key', 'convertflow' ); ?></strong></label>
 				<br>
-				<input type="text" id="api_key" name="api_key" title="api_key" value="<?php echo esc_attr( get_value( 'api_key' ) ); ?>">
+				<input type="text" id="api_key" name="api_key" title="api_key" value="<?php echo \esc_attr( get_value( 'api_key' ) ); ?>">
 				&nbsp;
-				<img src="<?php echo esc_url( get_url() . 'assets/img/tick.png' ); ?>" alt="<?php esc_attr_e( 'Check', 'convertflow' ); ?>" width="16">
+				<img src="<?php echo \esc_url( get_url() . 'assets/img/tick.png' ); ?>" alt="<?php \esc_attr_e( 'Check', 'convertflow' ); ?>" width="16">
 			</p>
 			<p>
-				<label for="email"><strong><?php esc_html_e( 'Website ID', 'convertflow' ); ?></strong></label>
+				<label for="email"><strong><?php \esc_html_e( 'Website ID', 'convertflow' ); ?></strong></label>
 				<br>
-				<input type="text" id="website_id" name="website_id" title="website_id" value="<?php echo esc_attr( get_value( 'website_id' ) ); ?>">
+				<input type="text" id="website_id" name="website_id" title="website_id" value="<?php echo \esc_attr( get_value( 'website_id' ) ); ?>">
 				&nbsp;
-				<img src="<?php echo esc_url( get_url() . 'assets/img/tick.png' ); ?>" alt="<?php esc_attr_e( 'Check', 'convertflow' ); ?>" width="16">
+				<img src="<?php echo \esc_url( get_url() . 'assets/img/tick.png' ); ?>" alt="<?php \esc_attr_e( 'Check', 'convertflow' ); ?>" width="16">
 			</p>
 			<input type="hidden" name="action" value="custom_action">
 			<p>
 				<button class="button button-primary button-hero">
-					<?php esc_html_e( 'Connect', 'convertflow' ); ?>
+					<?php \esc_html_e( 'Connect', 'convertflow' ); ?>
 					&nbsp;
-					<img src="<?php echo esc_url( get_url() . 'assets/img/spinner.gif' ); ?>" alt="<?php esc_attr_e( 'Spinner', 'convertflow' ) ?>" width="16">
+					<img src="<?php echo \esc_url( get_url() . 'assets/img/spinner.gif' ); ?>" alt="<?php \esc_attr_e( 'Spinner', 'convertflow' ) ?>" width="16">
 				</button>
 			</p>
 		</form>
@@ -130,7 +130,7 @@ function render_admin_menu_page() {
 	<?php
 }
 
-add_filter( 'plugin_action_links_' . get_base(), __NAMESPACE__ . '\\add_settings_link' );
+\add_filter( 'plugin_action_links_' . get_base(), __NAMESPACE__ . '\\add_settings_link' );
 /**
  * Adds settings link to plugin screen.
  *
@@ -141,7 +141,7 @@ add_filter( 'plugin_action_links_' . get_base(), __NAMESPACE__ . '\\add_settings
  * @return array
  */
 function add_settings_link( $links ) {
-	$links[] = sprintf(
+	$links[] = \sprintf(
 		'<a href="admin.php?page=convertflow">%s</a>',
 		__( 'Settings', 'convertflow' )
 	);

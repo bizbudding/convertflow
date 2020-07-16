@@ -18,3 +18,14 @@ Connects your WordPress site to your ConvertFlow account
  - ConvertFlow CTA
  - ConvertFlow Area
 
+## Development
+
+### Requirements
+
+- Node v12.18.2+
+- NPM v6.14.5+
+
+### Build
+
+1. From the plugin root directory, run `npm install` to install dependencies
+2. Run `npm run build` to compile scripts
