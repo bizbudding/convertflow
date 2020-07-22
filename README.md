@@ -31,3 +31,4 @@ Connects your WordPress site to your ConvertFlow account
 2. Run `npm run build` to compile scripts
 
 Proudly developed by BizBudding Inc. and ConvertFlow Inc.
+https://bizbudding.com
