@@ -29,3 +29,5 @@ Connects your WordPress site to your ConvertFlow account
 
 1. From the plugin root directory, run `npm install` to install dependencies
 2. Run `npm run build` to compile scripts
+
+Proudly developed by BizBudding Inc. and ConvertFlow Inc.
