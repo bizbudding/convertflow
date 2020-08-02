@@ -5,7 +5,7 @@
  * Plugin Name:       ConvertFlow
  * Plugin URI:        https://convertflow.com
  * Description:       Connect your WordPress site with your ConvertFlow account.
- * Version:           1.0.0
+ * Version:           0.1.0
  * Author:            BizBudding Inc.
  * Author URI:        https://bizbudding.com/
  * Text Domain:       convertflow

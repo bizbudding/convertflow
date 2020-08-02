@@ -25,6 +25,10 @@ Connects your WordPress site to your ConvertFlow account
 - Node v12.18.2+
 - NPM v6.14.5+
 
+If using (nvm)[https://github.com/nvm-sh/nvm], run the following command to update to the latest Node version:
+
+`nvm use --lts`
+
 ### Build
 
 1. From the plugin root directory, run `npm install` to install dependencies
@@ -32,3 +36,9 @@ Connects your WordPress site to your ConvertFlow account
 
 Proudly developed by BizBudding Inc. and ConvertFlow Inc.
 https://bizbudding.com
+
+### i18n
+
+To generate the translatable POT file, run the following WP CLI command from the plugin root directory:
+
+`wp i18n make-pot . assets/lang/convertflow.pot`

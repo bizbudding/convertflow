@@ -1,6 +1,6 @@
 {
   "name": "convertflow-wordpress-plugin",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Connects WordPress site to ConvertFlow account.",
   "scripts": {
     "build": "wp-scripts build assets/js/blocks.js --output-path=assets/js/min",

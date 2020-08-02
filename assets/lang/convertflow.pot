@@ -1,0 +1,98 @@
+# Copyright (C) 2020 BizBudding Inc.
+# This file is distributed under the same license as the ConvertFlow plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: ConvertFlow 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/convertflow\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-08-02T10:11:20+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: convertflow\n"
+
+#. Plugin Name of the plugin
+msgid "ConvertFlow"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://convertflow.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Connect your WordPress site with your ConvertFlow account."
+msgstr ""
+
+#. Author of the plugin
+msgid "BizBudding Inc."
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://bizbudding.com/"
+msgstr ""
+
+#: lib/shortcodes.php:17
+msgid "ConvertFlow API not connected."
+msgstr ""
+
+#: lib/shortcodes.php:29
+msgid "Please enter CTA ID."
+msgstr ""
+
+#: lib/admin.php:102
+msgid "Enter your site API Key and Website ID below."
+msgstr ""
+
+#: lib/admin.php:104
+msgid "Connected."
+msgstr ""
+
+#: lib/admin.php:105
+msgid "Incorrect API key or website ID."
+msgstr ""
+
+#: lib/admin.php:107
+msgid "API Key"
+msgstr ""
+
+#: lib/admin.php:111
+#: lib/admin.php:118
+msgid "Check"
+msgstr ""
+
+#: lib/admin.php:114
+msgid "Website ID"
+msgstr ""
+
+#: lib/admin.php:123
+msgid "Connect"
+msgstr ""
+
+#: lib/admin.php:125
+msgid "Spinner"
+msgstr ""
+
+#: lib/admin.php:146
+#: assets/js/cta.js:41
+#: assets/js/area.js:55
+#: assets/js/min/blocks.js:1
+msgid "Settings"
+msgstr ""
+
+#: assets/js/cta.js:46
+#: assets/js/min/blocks.js:1
+msgid "Select Call to Action"
+msgstr ""
+
+#: assets/js/area.js:60
+#: assets/js/min/blocks.js:1
+msgid "Select Area"
+msgstr ""
+
+#: assets/js/area.js:70
+#: assets/js/min/blocks.js:1
+msgid "Area"
+msgstr ""
