@@ -117,7 +117,6 @@ function render_admin_menu_page() {
 				&nbsp;
 				<img src="<?php echo \esc_url( get_url() . 'assets/img/tick.png' ); ?>" alt="<?php \esc_attr_e( 'Check', 'convertflow' ); ?>" width="16">
 			</p>
-			<input type="hidden" name="action" value="custom_action">
 			<p>
 				<button class="button button-primary button-hero">
 					<?php \esc_html_e( 'Connect', 'convertflow' ); ?>

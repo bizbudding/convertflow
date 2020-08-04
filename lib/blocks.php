@@ -41,7 +41,7 @@ function register_blocks() {
 	\wp_register_script(
 		$handle,
 		get_url() . 'assets/js/min/blocks.js',
-		$build['dependencies'],
+		\array_merge( $build['dependencies'], [ 'wp-blocks', 'wp-editor' ] ),
 		$build['version']
 	);
 
