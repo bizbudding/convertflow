@@ -19,8 +19,8 @@ registerBlockType( 'convertflow/cta', {
 
 	edit( { attributes, setAttributes } ) {
 		const { selectField } = attributes;
-		const screenshot      = convertflowData.screenshots[ selectField ];
 		const ctas            = convertflowData.ctas;
+		const firstCta        = ctas[ Object.keys( ctas )[ 0 ] ].toString();
 		const ctaOptions      = [];
 
 		for ( const key of Object.keys( ctas ) ) {
@@ -28,6 +28,16 @@ registerBlockType( 'convertflow/cta', {
 				value: ctas[ key ],
 				label: key
 			} );
+		}
+
+		let screenshot = convertflowData.screenshots[ selectField ];
+
+		if ( 1 === Object.keys( ctas ).length ) {
+			screenshot = convertflowData.screenshots[ firstCta ];
+		}
+
+		if ( 'undefined' === typeof selectField ) {
+			setAttributes( { selectField: firstCta } );
 		}
 
 		function onChangeSelectField( newValue ) {
