@@ -1,6 +1,5 @@
 <?php
 /**
- * Mai Engine.
  *
  * Plugin Name:       ConvertFlow
  * Plugin URI:        https://convertflow.com
