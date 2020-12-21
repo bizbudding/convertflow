@@ -99,8 +99,9 @@ function render_admin_menu_page() {
 		<br>
 		<img src="<?php echo \esc_url( get_url() . 'assets/img/convertflow.png' ); ?>" alt="ConvertFlow" width="200">
 		<br>
-		<p><?php \esc_html_e( 'Enter your site API Key and Website ID below.', 'convertflow' ) ?></p>
-		<form class="convertflow" action="javascript:void(0);" data-status="<?php echo \esc_attr( $status ); ?>">
+		<p>Welcome to the ConvertFlow WordPress plugin.</p>
+			<p><?php \esc_html_e( 'Enter your site API Key and Website ID below.', 'convertflow' ) ?></p>
+			<form class="convertflow" action="javascript:void(0);" data-status="<?php echo \esc_attr( $status ); ?>">
 			<p class="success success-message"><?php \esc_html_e( 'Connected.', 'convertflow' ); ?></p>
 			<p class="error error-message"><?php \esc_html_e( 'Incorrect API key or website ID.', 'convertflow' ) ?></p>
 			<p>
