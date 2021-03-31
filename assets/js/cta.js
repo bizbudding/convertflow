@@ -1,5 +1,6 @@
 import icons from './icons.js';
 
+const { __ }                       = wp.i18n;
 const { registerBlockType }        = wp.blocks;
 const { SelectControl, PanelBody } = wp.components;
 const { InspectorControls }        = wp.editor;
